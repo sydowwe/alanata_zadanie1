@@ -17,5 +17,12 @@ namespace alanata_zadanie1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+        protected void Application_BeginRequest(Object sender, EventArgs e)
+        {
+            var cultureInfo = new System.Globalization.CultureInfo("en-US"); // Default culture
+            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+        }
+
     }
 }

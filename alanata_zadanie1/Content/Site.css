@@ -1,6 +1,6 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿
+html,body, .body-content{
+    height: 100vh;
 }
 
 /* Set padding to keep content from hitting the edges */

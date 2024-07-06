@@ -1,0 +1,10 @@
+@model alanata_zadanie1.Models.User
+
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.Surname</td>
+    <td>@Model.Email</td>
+    <td>@Model.Username</td>
+    <td>@Model.Password</td>
+    @Html.Partial("ListItemActions",Model)
+</tr>

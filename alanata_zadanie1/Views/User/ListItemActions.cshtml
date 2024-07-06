@@ -1,0 +1,6 @@
+@model alanata_zadanie1.Models.User
+<td class="p-1">
+    <a class="btn btn-sm btn-info" href="@Url.Action("Detail", new { Id = Model.Id })">@TextResources.Detail</a>
+    <a class="btn btn-sm btn-warning" href="@Url.Action("Edit", new { Id = Model.Id })">@TextResources.Edit</a>
+    <a class="btn btn-sm btn-danger text-black" href="@Url.Action("Delete", new { Id = Model.Id })">@TextResources.Delete</a>
+</td>
