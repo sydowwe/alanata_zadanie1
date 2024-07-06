@@ -160,6 +160,7 @@
         <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
         <Content Include="Scripts\modernizr-2.8.3.js" />
         <Content Include="Views\User\Create.cshtml" />
+        <Content Include="Views\User\Detail.cshtml" />
         <Content Include="Views\User\Edit.cshtml" />
         <Content Include="Views\User\Index.cshtml" />
         <Content Include="Views\User\ListItem.cshtml" />

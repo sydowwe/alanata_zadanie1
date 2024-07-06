@@ -60,6 +60,15 @@ namespace alanata_zadanie1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Späť na zoznam.
+        /// </summary>
+        public static string BackToList {
+            get {
+                return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pridať.
         /// </summary>
         public static string Create {

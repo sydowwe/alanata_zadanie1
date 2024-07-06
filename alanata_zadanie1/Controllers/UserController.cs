@@ -59,5 +59,35 @@ namespace alanata_zadanie1.Controllers
             }
             return View(user);
         }
+        public ActionResult Detail(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = db.User.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = db.User.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            db.User.Remove(user);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

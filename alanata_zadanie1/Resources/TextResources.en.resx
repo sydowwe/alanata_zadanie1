@@ -38,4 +38,7 @@
     <data name="UserList" xml:space="preserve">
         <value>User list</value>
     </data>
+    <data name="BackToList" xml:space="preserve">
+        <value>Back to list</value>
+    </data>
 </root>
