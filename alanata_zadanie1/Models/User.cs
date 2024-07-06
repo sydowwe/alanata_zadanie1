@@ -15,7 +15,8 @@ namespace alanata_zadanie1.Models
         [Display(Name = "Surname")]
         public string Surname { get; set; }
 
-        [EmailAddress] public string Email { get; set; }
+        [EmailAddress] 
+        public string Email { get; set; }
 
         [Required]
         [Display(Name = "Username")]

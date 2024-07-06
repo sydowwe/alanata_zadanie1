@@ -1,0 +1,10 @@
+@model alanata_zadanie1.Models.User
+
+@{
+    ViewBag.Title = "Edit user";
+    Layout = "../Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Edit","User",FormMethod.Post))
+{
+    @Html.Partial("UserForm",Model)
+}

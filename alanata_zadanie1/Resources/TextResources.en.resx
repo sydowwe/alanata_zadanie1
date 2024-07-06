@@ -35,4 +35,7 @@
     <data name="Create" xml:space="preserve">
         <value>Create</value>
     </data>
+    <data name="UserList" xml:space="preserve">
+        <value>User list</value>
+    </data>
 </root>

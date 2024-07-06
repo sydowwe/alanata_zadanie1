@@ -132,6 +132,15 @@ namespace alanata_zadanie1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zoznam užívateľov.
+        /// </summary>
+        public static string UserList {
+            get {
+                return ResourceManager.GetString("UserList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prihlasovacie meno.
         /// </summary>
         public static string Username {

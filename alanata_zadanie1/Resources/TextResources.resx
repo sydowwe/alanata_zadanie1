@@ -45,4 +45,7 @@
     <data name="Create" xml:space="preserve">
         <value>Pridať</value>
     </data>
+    <data name="UserList" xml:space="preserve">
+        <value>Zoznam užívateľov</value>
+    </data>
 </root>
