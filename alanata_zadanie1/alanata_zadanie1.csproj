@@ -127,6 +127,7 @@
         <Compile Include="Global.asax.cs">
             <DependentUpon>Global.asax</DependentUpon>
         </Compile>
+        <Compile Include="Helper\LocalizationHelper.cs" />
         <Compile Include="Models\User.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Resources\TextResources.Designer.cs">
@@ -160,6 +161,8 @@
         <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
         <Content Include="Scripts\modernizr-2.8.3.js" />
         <Content Include="Views\User\Create.cshtml" />
+        <Content Include="Views\User\DeletePopover.cshtml" />
+        <Content Include="Views\User\DeletePopoverScript.cshtml" />
         <Content Include="Views\User\Detail.cshtml" />
         <Content Include="Views\User\Edit.cshtml" />
         <Content Include="Views\User\Index.cshtml" />

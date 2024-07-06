@@ -1,0 +1,22 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const popoverTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        popoverTriggerList.forEach(popoverTriggerEl => {
+            const contentSelector = popoverTriggerEl.attributes['data-content-selector'].value;
+            const contentHtml = document.getElementById(contentSelector).innerHTML;
+            new bootstrap.Popover(popoverTriggerEl, {
+                placement: 'left',
+                trigger: 'focus',
+                html: true,
+                sanitize: false,
+                title: "@TextResources.ConfirmDeletion",
+                content: contentHtml
+            });
+        });
+    });
+   
+    function hidePop(button) {
+        var popover = bootstrap.Popover.getInstance(button.closest('[data-bs-toggle="popover"]').previousElementSibling);
+        popover.hide();
+    }
+</script>

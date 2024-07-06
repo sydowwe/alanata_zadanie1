@@ -41,4 +41,16 @@
     <data name="BackToList" xml:space="preserve">
         <value>Back to list</value>
     </data>
+    <data name="Confirm" xml:space="preserve">
+        <value>Confirm</value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>Language</value>
+    </data>
+    <data name="ConfirmDeletion" xml:space="preserve">
+        <value>Confirm deletion</value>
+    </data>
 </root>

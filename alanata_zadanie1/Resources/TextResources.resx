@@ -51,4 +51,16 @@
     <data name="BackToList" xml:space="preserve">
         <value>Späť na zoznam</value>
     </data>
+    <data name="Confirm" xml:space="preserve">
+        <value>Potvrdiť</value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+        <value>Zrušiť</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>Jazyk</value>
+    </data>
+    <data name="ConfirmDeletion" xml:space="preserve">
+        <value>Potvrdiť odstránenie</value>
+    </data>
 </root>

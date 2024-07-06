@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -19,10 +21,20 @@ namespace alanata_zadanie1
         }
         protected void Application_BeginRequest(Object sender, EventArgs e)
         {
-            var cultureInfo = new System.Globalization.CultureInfo("en-US"); // Default culture
-            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            CultureInfo cultureInfo;
+            HttpCookie cultureCookie = HttpContext.Current.Request.Cookies["Culture"];
+            if (cultureCookie != null && !string.IsNullOrEmpty(cultureCookie.Value))
+            {
+                cultureInfo = new CultureInfo(cultureCookie.Value);
+                Thread.CurrentThread.CurrentCulture = cultureInfo;
+                Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            }
+            else
+            {
+                cultureInfo = new CultureInfo("en-US");
+            }
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
         }
-
     }
 }

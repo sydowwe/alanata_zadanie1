@@ -1,6 +1,8 @@
+using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using alanata_zadanie1.Models;
 
@@ -89,5 +91,15 @@ namespace alanata_zadanie1.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult ChangeLocale(string lang)
+        {
+            HttpCookie cookie = new HttpCookie("Culture", lang)
+            {
+                Expires = DateTime.Now.AddYears(1)
+            };
+            Response.Cookies.Add(cookie);
+            return Redirect(Request.UrlReferrer.ToString());
+        }
+       
     }
 }

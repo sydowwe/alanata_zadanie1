@@ -1,6 +1,10 @@
 @model alanata_zadanie1.Models.User
-<td class="p-1">
-    <a class="btn btn-sm btn-info" href="@Url.Action("Detail", new { Id = Model.Id })">@TextResources.Detail</a>
-    <a class="btn btn-sm btn-warning" href="@Url.Action("Edit", new { Id = Model.Id })">@TextResources.Edit</a>
-    <a class="btn btn-sm btn-danger text-black" href="@Url.Action("Delete", new { Id = Model.Id })">@TextResources.Delete</a>
+<td class="d-flex justify-content-center gap-2 px-3" style="width: fit-content!important;">
+    <a class="btn btn-sm btn-info" href="@Url.Action("Detail", new { Model.Id })">@TextResources.Detail</a>
+    <a class="btn btn-sm btn-warning" href="@Url.Action("Edit", new { Model.Id })">@TextResources.Edit</a>
+    <a tabindex="0" class="btn btn-sm btn-danger text-black" role="button" data-bs-toggle="popover" title="Delete"
+       data-content-selector="deletePopoverContent-@Model.Id">
+        @TextResources.Delete
+    </a>
+    @Html.Partial("DeletePopover", Model.Id)
 </td>

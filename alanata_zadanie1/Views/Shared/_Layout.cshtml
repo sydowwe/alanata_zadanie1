@@ -1,4 +1,8 @@
 ﻿@using System.Activities.Statements
+@using alanata_zadanie1.Helper
+@{
+    var currentLocale = LocalizationHelper.GetCurrentLocale(HttpContext.Current);
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,11 +32,11 @@
                 <div class="navbar-nav ms-auto">
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="localeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Locale
+                            @TextResources.Language - @currentLocale
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="localeDropdown">
-                            <li><a class="dropdown-item" href="#">English</a></li>
-                            <li><a class="dropdown-item" href="#">Slovak</a></li>
+                            <li><a class="dropdown-item @(currentLocale == "en" ? "active" : "")" href="@Url.Action("ChangeLocale", "User", new { lang = "en" })">English</a></li>
+                            <li><a class="dropdown-item @(currentLocale == "sk" ? "active" : "")" href="@Url.Action("ChangeLocale", "User", new { lang = "sk" })">Slovak</a></li>
                         </ul>
                     </div>
                 </div>

@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = @TextResources.UserList;
 }
-<table class="table table-primary table-bordered text-center">
+<table class="table table-sm table-primary table-bordered text-center">
     <thead class="table-dark">
     <tr>
         <td>@TextResources.Name</td>
@@ -10,7 +10,7 @@
         <td>@TextResources.Email</td>
         <td>@TextResources.Username</td>
         <td>@TextResources.Password</td>
-        <td class="p-1">
+        <td style="width: 1%!important;">
             <a class="btn btn-sm btn-success" href="@Url.Action("Create")">@TextResources.Create</a>
         </td>
     </tr>
@@ -22,3 +22,9 @@
     }
     </tbody>
 </table>
+@Html.Partial("DeletePopoverScript")
+<style>
+    td{
+        vertical-align: middle;
+    }
+</style>
