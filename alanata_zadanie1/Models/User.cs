@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
+using alanata_zadanie1.Resources;
 
 namespace alanata_zadanie1.Models
 {
@@ -14,19 +16,19 @@ namespace alanata_zadanie1.Models
         [Display(Name = "Name")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceName = "SurnameRequired",ErrorMessageResourceType = typeof(TextResources))]
         [Display(Name = "Surname")]
         public string Surname { get; set; }
 
-        [EmailAddress] 
+        
+        [EmailAddress(ErrorMessageResourceName = "EmailInvalid", ErrorMessageResourceType = typeof(TextResources))]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceName = "UsernameRequired",ErrorMessageResourceType = typeof(TextResources))]
         [Display(Name = "Username")]
         public string Username { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
+        [Required(ErrorMessageResourceName = "PasswordRequired",ErrorMessageResourceType = typeof(TextResources))]
         public string Password { get; set; }
 
         public static List<string> GetVisibleFields()

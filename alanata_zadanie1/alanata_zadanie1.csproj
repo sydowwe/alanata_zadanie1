@@ -170,6 +170,7 @@
         <Content Include="Views\User\ListItem.cshtml" />
         <Content Include="Views\User\ListItemActions.cshtml" />
         <Content Include="Views\User\PaginationForm.cshtml" />
+        <Content Include="Views\User\TogglePasswordScript.cshtml" />
         <Content Include="Views\User\SortForm.cshtml" />
         <Content Include="Views\User\UserForm.cshtml" />
         <Content Include="Web.config" />

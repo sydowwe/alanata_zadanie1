@@ -12,16 +12,15 @@ namespace alanata_zadanie1.Controllers
     public class UserController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET
-        public ActionResult Index(string orderBy = "Name", string orderByDir = "ASC", int perPage = 1, int currentPage = 1)
+        public ActionResult Index(string orderBy = "Name", string orderByDir = "ASC", int perPage = 10, int currentPage = 1)
         {
             IQueryable<User> users = db.User;
 
             users = ApplySorting(users,orderBy,orderByDir == "ASC");
 
-            int numOfPages = users.Count() / perPage;
+            int numOfPages = (int) Math.Ceiling((double) users.Count() / perPage);
             users = users.Skip((currentPage - 1) * perPage).Take(perPage);
-
+            
             var model = new UserViewModel
             {
                 Users = users.ToList(),
@@ -30,7 +29,7 @@ namespace alanata_zadanie1.Controllers
                 PerPage = perPage,
                 OrderBy = orderBy,
                 OrderByDirection = orderByDir,
-                PerPageOptions = new[] { 1, 2, 15 },
+                PerPageOptions = new[] { 10, 20, 40 },
                 OrderByOptions = Models.User.GetVisibleFields(),
                 OrderByDirOptions = new[] { "ASC", "DESC" }
             };

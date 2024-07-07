@@ -68,4 +68,22 @@
     <data name="UserDetails" xml:space="preserve">
         <value>User details</value>
     </data>
+    <data name="PasswordRequired" xml:space="preserve">
+        <value>Password is required</value>
+    </data>
+    <data name="UsernameRequired" xml:space="preserve">
+        <value>Username is required</value>
+    </data>
+    <data name="SurnameRequired" xml:space="preserve">
+        <value>Surname is required</value>
+    </data>
+    <data name="EmailInvalid" xml:space="preserve">
+        <value>Email invalid</value>
+    </data>
+    <data name="Show" xml:space="preserve">
+        <value>Show</value>
+    </data>
+    <data name="Hide" xml:space="preserve">
+        <value>Hide</value>
+    </data>
 </root>

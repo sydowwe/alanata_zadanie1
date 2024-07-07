@@ -19,12 +19,8 @@ body{
     white-space: normal;
 }
 
-input,
-select,
-textarea{
-    max-width: 380px!important;
-}
+
 .form-floating>input,
 .form-floating>select{
-    min-width: 300px!important;
+    min-width: 280px!important;
 }

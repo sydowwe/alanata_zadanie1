@@ -28,9 +28,12 @@
         </div>
 
         <div class="mb-1 form-floating">
-            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "" } })
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "", @type = "password", id="passwordField" } })
             @Html.LabelFor(model => model.Password)
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            <span class="position-absolute top-50 end-0 translate-middle-y me-3 text-primary" onclick="togglePasswordVisibility(this)" style="user-select: none;cursor: pointer;">
+                @TextResources.Show
+            </span>
         </div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger mb-2" })
 
@@ -39,3 +42,4 @@
         </div>
     </div>
 </div>
+@Html.Partial("TogglePasswordScript")

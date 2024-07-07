@@ -11,6 +11,9 @@
     <title>User evidence - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
 <div class="container-fluid body-content d-flex flex-column">
@@ -23,7 +26,7 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Create")">@TextResources.NewUser</a>
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"].ToString() == "Create" ? "active" : "")" href="@Url.Action("Create")">@TextResources.NewUser</a>
                     </li>
                 </ul>
                 <div class="navbar-nav ms-auto">
@@ -51,9 +54,6 @@
         <span>07.07. 2024 - Jakub Sobota</span>
     </footer>
 </div>
-
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)
 </body>
 </html>

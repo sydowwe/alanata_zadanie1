@@ -78,4 +78,22 @@
     <data name="UserDetails" xml:space="preserve">
         <value>Údaje o užívateľovi</value>
     </data>
+    <data name="PasswordRequired" xml:space="preserve">
+        <value>Heslo je povinné</value>
+    </data>
+    <data name="UsernameRequired" xml:space="preserve">
+        <value> Prihlasovacie meno je povinné</value>
+    </data>
+    <data name="SurnameRequired" xml:space="preserve">
+        <value>Priezvisko je povinné</value>
+    </data>
+    <data name="EmailInvalid" xml:space="preserve">
+        <value>Nesprávny formát emailu</value>
+    </data>
+    <data name="Show" xml:space="preserve">
+        <value>Zobraz</value>
+    </data>
+    <data name="Hide" xml:space="preserve">
+        <value>Skry</value>
+    </data>
 </root>

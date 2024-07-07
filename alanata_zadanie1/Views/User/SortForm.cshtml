@@ -1,3 +1,4 @@
+@using System.Resources
 @model alanata_zadanie1.Models.UserViewModel
 <form id="sortForm" action="@Url.Action("Index")" method="get">
     <div class="d-flex flex-column flex-md-row justify-content-between my-3">
@@ -16,7 +17,7 @@
             <select class="form-select w-auto formSelect" name="orderBy">
                 @foreach (var item in Model.OrderByOptions)
                 {
-                    <option value="@item" @(Model.OrderBy == item ? "selected" : "")>@TextResources.GetResource(item)</option>
+                    <option value="@item" @(Model.OrderBy == item ? "selected" : "")>@item</option>
                 }
             </select>
             <select class="form-select w-auto formSelect" name="orderByDir">
