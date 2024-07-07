@@ -1,13 +1,13 @@
 @model alanata_zadanie1.Models.User
 
 @{
-    ViewBag.Title = "User Details";
+    ViewBag.Title = TextResources.UserDetails;
 }
 
 <div class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-header bg-dark text-white">
-            <h3 class="card-title m-0">User Details</h3>
+            <h3 class="card-title m-0">@Model.Name @Model.Surname</h3>
         </div>
         <div class="card-body">
             <dl class="row">
@@ -22,11 +22,14 @@
 
                 <dt class="col-sm-3">@TextResources.Username</dt>
                 <dd class="col-sm-9">@Html.DisplayFor(model => model.Username)</dd>
+                
+                <dt class="col-sm-3">@TextResources.Password</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Password)</dd>
             </dl>
         </div>
         <div class="card-footer text-center">
-            <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning">@TextResources.Edit</a>
             <a href="@Url.Action("Index")" class="btn btn-info">@TextResources.BackToList</a>
+            <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning">@TextResources.Edit</a>
         </div>
     </div>
 </div>

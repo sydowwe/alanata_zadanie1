@@ -1,6 +1,7 @@
 using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -12,10 +13,40 @@ namespace alanata_zadanie1.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET
-        public ActionResult Index()
+        public ActionResult Index(string orderBy = "Name", string orderByDir = "ASC", int perPage = 1, int currentPage = 1)
         {
-            ViewBag.Title = "User evidence";
-            return View(db.User.ToList());
+            IQueryable<User> users = db.User;
+
+            users = ApplySorting(users,orderBy,orderByDir == "ASC");
+
+            int numOfPages = users.Count() / perPage;
+            users = users.Skip((currentPage - 1) * perPage).Take(perPage);
+
+            var model = new UserViewModel
+            {
+                Users = users.ToList(),
+                NumOfPages = numOfPages,
+                CurrentPage = currentPage,
+                PerPage = perPage,
+                OrderBy = orderBy,
+                OrderByDirection = orderByDir,
+                PerPageOptions = new[] { 1, 2, 15 },
+                OrderByOptions = Models.User.GetVisibleFields(),
+                OrderByDirOptions = new[] { "ASC", "DESC" }
+            };
+
+            return View(model);
+        }
+        private IQueryable<User> ApplySorting(IQueryable<User> users, string orderBy, bool sortAscending)
+        {
+            var parameter = Expression.Parameter(typeof(User), "u");
+            var property = Expression.Property(parameter, orderBy);
+            var lambda = Expression.Lambda(property, parameter);
+
+            string methodName = sortAscending ? "OrderBy" : "OrderByDescending";
+            var resultExpression = Expression.Call(typeof(Queryable), methodName, new Type[] { typeof(User), property.Type }, users.Expression, Expression.Quote(lambda));
+
+            return users.Provider.CreateQuery<User>(resultExpression);
         }
         public ActionResult Create()
         {
@@ -32,20 +63,23 @@ namespace alanata_zadanie1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return RedirectToAction("Index");
         }
-        
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             User user = db.User.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
+
             return View(user);
         }
 
@@ -59,21 +93,26 @@ namespace alanata_zadanie1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(user);
         }
+
         public ActionResult Detail(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var user = db.User.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
+
             return View(user);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int? id)
@@ -82,15 +121,18 @@ namespace alanata_zadanie1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var user = db.User.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
+
             db.User.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
         public ActionResult ChangeLocale(string lang)
         {
             HttpCookie cookie = new HttpCookie("Culture", lang)
@@ -100,6 +142,5 @@ namespace alanata_zadanie1.Controllers
             Response.Cookies.Add(cookie);
             return Redirect(Request.UrlReferrer.ToString());
         }
-       
     }
 }

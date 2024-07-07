@@ -1,0 +1,38 @@
+@model alanata_zadanie1.Models.UserViewModel
+<form id="sortForm" action="@Url.Action("Index")" method="get">
+    <div class="d-flex flex-column flex-md-row justify-content-between my-3">
+        <div class="input-group w-auto" >
+            <span class="input-group-text">@TextResources.ShowPerPage</span>
+            <select class="form-select w-auto formSelect" name="perPage">
+                @foreach (var item in Model.PerPageOptions)
+                {
+                    <option value="@item" @(Model.PerPage == item ? "selected" : "")>@item</option>
+                }
+            </select>
+        </div>
+        <h3 class="text-center mb-0">@ViewBag.Title</h3>
+        <div class="input-group w-auto">
+            <span class="input-group-text">@TextResources.OrderBy</span>
+            <select class="form-select w-auto formSelect" name="orderBy">
+                @foreach (var item in Model.OrderByOptions)
+                {
+                    <option value="@item" @(Model.OrderBy == item ? "selected" : "")>@TextResources.GetResource(item)</option>
+                }
+            </select>
+            <select class="form-select w-auto formSelect" name="orderByDir">
+                @foreach (var item in Model.OrderByDirOptions)
+                {
+                    <option value="@item" @(Model.OrderByDirection == item ? "selected" : "")>@(item == "ASC" ? "Az" : "Za")</option>
+                }
+            </select>
+        </div>
+    </div>
+    <input id="currentPage" class="formSelect" name="currentPage" value="@Model.CurrentPage" type="hidden"/>
+</form>
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        $('.formSelect').change(e=>{
+            $('#sortForm').submit();
+        });
+    });
+</script>

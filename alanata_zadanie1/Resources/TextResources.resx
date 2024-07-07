@@ -63,4 +63,19 @@
     <data name="ConfirmDeletion" xml:space="preserve">
         <value>Potvrdiť odstránenie</value>
     </data>
+    <data name="ShowPerPage" xml:space="preserve">
+        <value>Zobraziť na stránku</value>
+    </data>
+    <data name="OrderBy" xml:space="preserve">
+        <value>Zoradiť podľa</value>
+    </data>
+    <data name="EditUser" xml:space="preserve">
+        <value>Úprava užívateľa</value>
+    </data>
+    <data name="NewUser" xml:space="preserve">
+        <value>Nový užívateľ</value>
+    </data>
+    <data name="UserDetails" xml:space="preserve">
+        <value>Údaje o užívateľovi</value>
+    </data>
 </root>

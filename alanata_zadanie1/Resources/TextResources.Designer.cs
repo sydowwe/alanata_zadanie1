@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Resources;
+
 namespace alanata_zadanie1.Resources {
     using System;
     
@@ -30,7 +32,12 @@ namespace alanata_zadanie1.Resources {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal TextResources() {
         }
-        
+        private static ResourceManager _resourceManager = new ResourceManager("alanata_zadanie1.Resources.TextResources", typeof(TextResources).Assembly);
+
+        public static string GetResource(string key)
+        {
+            return _resourceManager.GetString(key);
+        }
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -132,6 +139,15 @@ namespace alanata_zadanie1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Úprava užívateľa.
+        /// </summary>
+        public static string EditUser {
+            get {
+                return ResourceManager.GetString("EditUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -159,6 +175,24 @@ namespace alanata_zadanie1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nový užívateľ.
+        /// </summary>
+        public static string NewUser {
+            get {
+                return ResourceManager.GetString("NewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zoradiť podľa.
+        /// </summary>
+        public static string OrderBy {
+            get {
+                return ResourceManager.GetString("OrderBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Heslo.
         /// </summary>
         public static string Password {
@@ -168,11 +202,29 @@ namespace alanata_zadanie1.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zobraziť na stránku.
+        /// </summary>
+        public static string ShowPerPage {
+            get {
+                return ResourceManager.GetString("ShowPerPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Priezvisko.
         /// </summary>
         public static string Surname {
             get {
                 return ResourceManager.GetString("Surname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Údaje o užívateľovi.
+        /// </summary>
+        public static string UserDetails {
+            get {
+                return ResourceManager.GetString("UserDetails", resourceCulture);
             }
         }
         

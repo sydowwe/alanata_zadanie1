@@ -1,28 +1,35 @@
-@model List<alanata_zadanie1.Models.User>
+@model alanata_zadanie1.Models.UserViewModel
 @{
     ViewBag.Title = @TextResources.UserList;
 }
-<table class="table table-sm table-primary table-bordered text-center">
-    <thead class="table-dark">
-    <tr>
-        <td>@TextResources.Name</td>
-        <td>@TextResources.Surname</td>
-        <td>@TextResources.Email</td>
-        <td>@TextResources.Username</td>
-        <td>@TextResources.Password</td>
-        <td style="width: 1%!important;">
-            <a class="btn btn-sm btn-success" href="@Url.Action("Create")">@TextResources.Create</a>
-        </td>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var user in Model)
-    {
-        @Html.Partial("ListItem", user)
-    }
-    </tbody>
-</table>
-@Html.Partial("DeletePopoverScript")
+<div class="h-100 d-flex flex-column">
+    @Html.Partial("SortForm", Model)
+    <div class="flex-fill table-responsive">
+        <table class="table table-sm table-primary table-bordered text-center table-responsive">
+            <thead class="table-dark">
+            <tr>
+                <td>@TextResources.Name</td>
+                <td>@TextResources.Surname</td>
+                <td>@TextResources.Email</td>
+                <td>@TextResources.Username</td>
+                <td>@TextResources.Password</td>
+                <td style="width: 1%!important;">
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Create")">@TextResources.Create</a>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var user in Model.Users)
+            {
+                @Html.Partial("ListItem", user)
+            }
+            </tbody>
+        </table>
+    </div>
+    @Html.Partial("DeletePopoverScript")
+    @Html.Partial("PaginationForm")
+</div>
+
 <style>
     td{
         vertical-align: middle;

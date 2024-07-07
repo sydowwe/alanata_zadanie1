@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace alanata_zadanie1.Models
 {
     using System.ComponentModel.DataAnnotations;
@@ -25,6 +28,11 @@ namespace alanata_zadanie1.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public static List<string> GetVisibleFields()
+        {
+            return typeof(User).GetProperties().Select(x => x.Name).Where(x=>x!="Password" && x!="Id").ToList();
+        }
     }
 
     public class ApplicationDbContext : DbContext

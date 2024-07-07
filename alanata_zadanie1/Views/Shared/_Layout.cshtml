@@ -23,10 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Create")">@TextResources.Create</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link 2</a>
+                        <a class="nav-link" href="@Url.Action("Create")">@TextResources.NewUser</a>
                     </li>
                 </ul>
                 <div class="navbar-nav ms-auto">
@@ -44,11 +41,14 @@
         </div>
     </nav>
     <div class="flex-fill py-2">
-        <h3 class="text-center">@ViewBag.Title</h3>
+        @if (ViewContext.RouteData.Values["action"].ToString() != "Index")
+        {
+            <h3 class="text-center my-3">@ViewBag.Title</h3>
+        } 
         @RenderBody()
     </div>
     <footer class="mb-2">
-        <span>@DateTime.Now.ToString("dd. MM. yyyy") - My ASP.NET Application</span>
+        <span>07.07. 2024 - Jakub Sobota</span>
     </footer>
 </div>
 

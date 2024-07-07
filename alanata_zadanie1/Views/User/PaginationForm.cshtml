@@ -1,0 +1,17 @@
+@model alanata_zadanie1.Models.UserViewModel
+<div class="w-100 d-flex justify-content-center">
+    <div class="btn-group" role="group" aria-label="Pagination controls">
+        @for (int i = 1; i <= Model.NumOfPages; i++)
+        {
+            <button class="btn btn-outline-primary pagin @(i == Model.CurrentPage ? "active" : "")" aria-current="page">@i</button>
+        }
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded",()=>{
+        $('.pagin').click(e=>{
+            console.log(e.target.textContent)
+            $('#currentPage').val(e.target.textContent).change();
+        });
+    });
+</script>
